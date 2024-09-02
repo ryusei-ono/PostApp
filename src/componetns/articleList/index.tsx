@@ -44,16 +44,16 @@ export const ArticleList = () => {
   };
 
   return (
-    <div className="p-4 max-w-4xl mx-auto">
+    <div className="p-4 max-w-7xl mx-auto">
       <h2 className="text-2xl font-bold mb-4 text-center">投稿一覧</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-black-200 mb-7">
           <thead>
             <tr className="bg-slate-400">
-              <th className="border px-4 py-2">タイトル</th>
-              <th className="border px-4 py-2 min-w-[300px]">投稿内容</th>
-              <th className="border px-4 py-2">投稿日</th>
-              <th className="border px-4 py-2"></th>
+              <th className="border px-4 py-2 min-w-[300px]">タイトル</th>
+              <th className="border px-4 py-2 min-w-[400px]">投稿内容</th>
+              <th className="border px-4 py-2 min-w-[110px]">投稿日</th>
+              <th className="border px-4 py-2 min-w-[110px]"></th>
             </tr>
           </thead>
           <tbody>
@@ -62,12 +62,12 @@ export const ArticleList = () => {
                 key={post.id}
                 className={index % 2 === 1 ? 'bg-neutral-300' : ''}
               >
-                <td className="border px-4 py-2 min-w-[300px]">{post.title}</td>
-                <td className="border px-4 py-2 min-w-[400px]">{post.text}</td>
+                <td className="border px-4 py-2">{post.title}</td>
+                <td className="border px-4 py-2">{post.text}</td>
                 <td className="border px-4 py-2">
                   {post.postingTime.toDate().toLocaleDateString()}
                 </td>
-                <td className="border px-4 py-2 text-right">
+                <td className="border px-4 py-2 text-center">
                   {userEmail === post.email && (
                     <button
                       onClick={handleDelete}

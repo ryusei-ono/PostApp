@@ -44,7 +44,7 @@ export const ArticleList = () => {
   };
 
   return (
-    <div className="p-4 max-w-7xl mx-auto">
+    <div className="p-4 max-w-8xl mx-auto">
       <h2 className="text-2xl font-bold mb-4 text-center">投稿一覧</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white border border-black-200 mb-7">
@@ -63,7 +63,7 @@ export const ArticleList = () => {
                 className={index % 2 === 1 ? 'bg-neutral-300' : ''}
               >
                 <td className="border px-4 py-2">{post.title}</td>
-                <td className="border px-4 py-2">{post.text}</td>
+                <td className="border px-4 py-2 break-normal">{post.text}</td>
                 <td className="border px-4 py-2">
                   {post.postingTime.toDate().toLocaleDateString()}
                 </td>

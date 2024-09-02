@@ -14,9 +14,26 @@ export const ArticleRegister = () => {
       const postCollection = collection(db, 'posts');
       const postSnapshot = await getDocs(postCollection);
       const postCount = postSnapshot.size;
-
+      let newPostId = "";
+      let maxId = 0;
+      
       //ドキュメント名設定
-      const newPostId = `post${postCount + 1}`;
+    
+      if(postCount < 0){
+        newPostId = `post${postCount + 1}`;
+      }else{
+        postSnapshot.docs.forEach((doc) => {
+          const docId = doc.id;
+          const match = docId.match(/(\d+)$/);
+          if (match) {
+            const num = parseInt(match[1], 10);
+            if (num > maxId) {
+              maxId = num;
+            }
+          }
+        })
+        newPostId =`post${maxId + 1}`
+      }
 
       //投稿記事登録処理
       const newPostRef = doc(db, 'posts', newPostId);
